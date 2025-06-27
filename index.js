@@ -12,23 +12,12 @@ const tutorials = [
 ];
 
 function titleCased() {
-  const specialWords = {
-    "api": "API",
-    "oo": "OO",
-    "jsonp": "JSONP",
-    "nan": "NaN",
-    "constructor": "Constructor",
-    "preventdefault": "PreventDefault",
-    "stoppropagation": "StopPropagation"
-  };
-
-  return tutorials.map(tutorial => {
-    return tutorial
-      .split(" ")
-      .map(word => {
-        const lower = word.toLowerCase();
-        return specialWords[lower] || (word[0].toUpperCase() + word.slice(1).toLowerCase());
-      })
-      .join(" ");
+  return tutorials.map(sentence => {
+    return sentence
+      .split(" ") // Split the sentence into words
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+      .join(" "); // Join the capitalized words back into a sentence
   });
 }
+
+console.log(titleCased());
